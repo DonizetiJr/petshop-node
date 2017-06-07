@@ -3,16 +3,18 @@ var router = express.Router();
 var Cart = require('../models/cart');
 
 var Product = require('../models/product');
+var Order = require('../models/order');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var successMsg = req.flash('success')[0];
   Product.find(function(err, docs) {
     var productChunks = [];
     var chunckSize = 3;
     for (var i = 0; i < docs.length; i += chunckSize) {
       productChunks.push(docs.slice(i,i + chunckSize));
     }
-    res.render('shop/index', { title: 'Pet Shop', products: productChunks });
+    res.render('shop/index', { title: 'Pet Shop', products: productChunks, successMsg: successMsg, noMessages: !successMsg });
   });
 });
 
@@ -43,7 +45,43 @@ router.get('/checkout', function(req, res, next) {
     return res.res('/shopping-cart');
   }
   var cart = new Cart(req.session.cart);
-  res.render('shop/checkout', {total: cart.totalPrice});
+  var errMsg = req.flash('error')[0];
+  res.render('shop/checkout', {total: cart.totalPrice, errMsg: errMsg, noError: !errMsg});
+});
+
+router.post('/checkout', function(req, res, next) {
+  if (!req.session.cart) {
+    return res.res('/shopping-cart');
+  }
+  var cart = new Cart(req.session.cart);
+
+  // var stripe = require("stripe")(
+  // "sk_test_JcxTGctgE88j1TimglukGail"
+  // );
+  //
+  // var token = response.id;
+  // $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+  // $form.get(0).submit();
+  //
+  // stripe.charges.create({
+  //   amount: cart.totalPrice * 100,
+  //   currency: "brl",
+  //   source: req.body.stripeToken, // obtained with Stripe.js
+  //   description: "Test Charge"
+  // }, function(err, charge) {
+  //   // asynchronously called
+  //   if (err) {
+  //     req.flash('error', err.message);
+  //     return res.redirect('/checkout');
+  //   }
+
+  var order = new Order();
+
+  req.flash('success', 'Successfully bought product!');
+  req.session.cart = null;
+  res.redirect('/');
+  // });
+
 });
 
 module.exports = router;
