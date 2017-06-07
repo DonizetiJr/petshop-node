@@ -1,0 +1,67 @@
+body {
+  font-family: 'Dosis', sans-serif;
+  background-image: linear-gradient(0deg, #f1f6f9 70%, #f9f9f9);
+  height: 100vh;
+}
+.navbar-default {
+  background-color: white;
+  box-shadow: 0 10px 15px 0 rgba(22, 46, 79, 0.1);
+
+}
+
+.navbar-default .navbar-nav>li>a {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.thumbnail {
+  height: 300px;
+  width: 300px;
+  padding-top: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 10px 15px 0 rgba(22, 46, 79, 0.1);
+}
+
+.thumbnail img {
+  max-height: 150px;
+  border-radius: 35px;
+  box-shadow: 0 3px 7px 0 rgba(22, 46, 79, 0.1);
+}
+
+.thumbnail .description {
+  color: #7f7f7f;
+}
+
+.btn {
+  z-index: 2;
+  border-radius: 50px;
+  padding: .5rem 1.5rem;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  transition: all .2s ease-in;
+}
+
+.btn-info, .btn-primary {
+  background: #a5d6e4;
+  box-shadow: 0 10px 15px 0 rgba(22, 46, 79, 0.1);
+  border: none;
+}
+
+.btn-checkout {
+  margin-top: 3em;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.list-group-item {
+  margin-bottom: .2rem;
+}
+
+.label {
+  margin: 1em;
+}
