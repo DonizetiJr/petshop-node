@@ -75,11 +75,20 @@ router.post('/checkout', function(req, res, next) {
   //     return res.redirect('/checkout');
   //   }
 
-  var order = new Order();
+  var order = new Order({
+    user: req.user,
+    cart: cart,
+    address: req.body.address,
+    name: req.body.name,
+    // paymentId: charge.id
+  });
 
-  req.flash('success', 'Successfully bought product!');
-  req.session.cart = null;
-  res.redirect('/');
+  order.save(function(err, result) {
+    req.flash('success', 'Successfully bought product!');
+    req.session.cart = null;
+    res.redirect('/');
+  });
+
   // });
 
 });
