@@ -18,6 +18,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/services', function(req, res, next){
+  res.render('shop/services');
+});
+
 router.get('/add-to-cart/:id', function(req, res, next) {
   var productID = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});

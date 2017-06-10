@@ -1,0 +1,36 @@
+.boxSizeDefault{
+	width: 200px;
+}
+
+.marginDefault{
+	margin-top: 5%;
+}
+
+#divConsulta{
+	padding-left: 4.3em;
+}
+
+#divData{
+	margin-left: 20.5%;
+}
+
+#divPet{
+	margin-left: 15%;
+}
+
+#divCliente{
+	padding-left: 5em;
+}
+
+#select{
+	width: 12em;
+}
+
+#formulario {
+	margin-left: 17%;
+	border-bottom: 3px solid black;
+}
+
+#contato{
+	clear: all;
+}

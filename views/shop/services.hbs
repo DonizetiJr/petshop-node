@@ -1,0 +1,43 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/services.css">
+<script type="text/javascript" src='javascripts/datepicker/js/bootstrap-datepicker.js'></script>
+<script type="text/javascript" src='javascripts/datepicker/locales/bootstrap-datepicker.pt-BR.min.js'></script>
+<link rel="stylesheet" type="text/css" href="javascripts/datepicker/css/bootstrap-datepicker.css">
+
+<h1 class="text-center">Formulario para Agendamento de Serviços</h1>
+
+<div class="row col-md-8" id="formulario">
+		<div class="form-inline marginDefault">
+			<div class="form-group" id="divCliente">
+				<label for="nomeCliente">Nome Cliente</label>
+				<input id="nomeCliente" type="text" class="form-control boxSizeDefault" placeholder="Digite o nome do Cliente"></input>
+			</div>
+			<div class="form-group" id="divPet">
+				<label for="nomePet">Nome Pet</label>
+				<input class="form-control boxSizeDefault" id="nomePet" placeholder="Nome do Pet"></input>
+			</div>
+		</div>
+		<div class="form-inline marginDefault" id="divConsulta">
+			<div class="form-group">
+				<label for="consultaTipo">Tipo do Serviço</label>
+				<select class="form-control" id="select">
+					<option>Banho e tosa</option>
+					<option>Consulta com Veterinario</option>
+					<option>Adestramento</option>
+					<option>Castração</option>
+				</select>
+			</div>
+
+			<div class="input-group date" data-provide="datepicker" id="divData">
+			    <input type="text" class="form-control boxSizeDefault" id="datepicker" placeholder="Data da Consulta">
+			    <div class="input-group-addon">
+				    <span class="glyphicon glyphicon-th"></span>
+		    	</div>
+			</div>
+		</div>
+		<br>
+</div>
+<div class="row col-md-8" >
+		<h1>Oi</h1>
+</div>
+
+<script type="text/javascript" src='javascripts/datepicker.js'></script>
