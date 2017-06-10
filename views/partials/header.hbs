@@ -15,27 +15,75 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <a href="/shopping-cart/">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
-                    <span class="badge">{{ session.cart.totalQty }}</span>
-                  </a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> User Management <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        {{# if login }}
-                          <li><a href="/user/profile">User Account</a></li>
-                          <li role="separator" class="divider"></li>
-                          <li><a href="/user/logout">Logout</a></li>
-                        {{ else }}
-                          <li><a href="/user/signup">Sign Up</a></li>
-                          <li><a href="/user/signin">Sign In</a></li>
-                        {{/if}}
 
-                    </ul>
+              <!-- Button trigger modal -->
+              <li><a type="button" data-toggle="modal" data-target="#myModal">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                <span id="header-badge" class="badge">{{ session.cart.totalQty }}</span>
+              </a></li>
+
+              {{# if login }}
+                <li><a onclick="openNav()">User Account</a></li>
+              {{ else }}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> User Management <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/user/signup">Sign Up</a></li>
+                    <li><a href="/user/signin">Sign In</a></li>
+                  </ul>
                 </li>
+              {{/if}}
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+<!-- The overlay -->
+<div id="myNav" class="overlay">
+
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+(function() {
+
+  "use strict";
+
+  var toggles = document.querySelectorAll(".c-hamburger");
+
+  for (var i = toggles.length - 1; i >= 0; i--) {
+    var toggle = toggles[i];
+    toggleHandler(toggle);
+  };
+
+  function toggleHandler(toggle) {
+    toggle.addEventListener( "click", function(e) {
+      e.preventDefault();
+      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+    });
+  }
+
+})();
+
+/* Open */
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+/* Close */
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
