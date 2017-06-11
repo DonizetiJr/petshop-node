@@ -7,6 +7,9 @@
     top: 0;
     right: 0;
     background-color: #fafafa; /* Black*/
+    background-image: linear-gradient(rgba(239,186,196, .6) 10%, rgba(239,186,196, .6)), url('../images/cat3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     overflow-x: hidden; /* Disable horizontal scroll */
     box-shadow: 0 10px 15px 0 rgba(22, 46, 79, 0.1);
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -54,8 +57,8 @@
   height: 22%;
   padding-top: .8em;
   z-index: -1;
-  background-image: linear-gradient(#f8e3e8 10%, #efb7c2);
-  box-shadow: 0 6px 30px 0 rgba(22, 46, 79, 0.1);
+  /*background-image: linear-gradient(#f8e3e8 10%, #efb7c2);*/
+  /*box-shadow: 0 6px 30px 0 rgba(22, 46, 79, 0.1);*/
 }
 
 .menu-header h3 {
