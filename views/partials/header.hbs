@@ -55,6 +55,9 @@
     <p>{{user.email}}</p><br>
     <p>{{user.address}}</p><br>
     <p>{{user.phone}}</p><br>
+    <p><a class="service-link" type="button" data-toggle="modal" data-target="#ServicesModal">
+      <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> Agendar Serviço
+    </a></p>
 
     <p class="info-important">Meus pets:</p>
     .<div class="my-pets">
@@ -69,6 +72,69 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="ServicesModal" tabindex="-1" role="dialog" aria-labelledby="ServicesModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="ServicesModalLabel">Formulário para Agendamento de Serviços</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row col-md-8" id="formulario">
+        		<div class="form-inline marginDefault">
+        			<div class="form-group" id="divCliente">
+        				<label for="nomeCliente">Nome Cliente</label><br>
+        				<input id="nomeCliente" type="text" class="form-control boxSizeDefault" placeholder="Digite o nome do Cliente"></input><br>
+        			</div>
+        			<div class="form-group" id="divPet">
+        				<label for="nomePet">Nome Pet</label><br>
+        				<input class="form-control boxSizeDefault" id="nomePet" placeholder="Nome do Pet"></input><br>
+        			</div>
+        		</div>
+        		<div class="form-inline marginDefault">
+        			<div class="form-group" id="divCliente">
+        				<label for="contatoCliente">Fone Contato</label><br>
+        				<input id="contatoCliente" type="text" class="form-control boxSizeDefault" placeholder="(XX) XXXXX-XXXX"></input><br>
+        			</div>
+
+        		</div>
+        		<div class="form-inline marginDefault" id="divConsulta">
+        			<div class="form-group">
+        				<label for="consultaTipo">Tipo do Serviço</label><br>
+        				<select class="form-control" id="select">
+        					<option value="1">Banho e tosa</option>
+        					<option value="2">Consulta com Veterinario</option>
+        					<option value="3">Adestramento</option>
+        					<option value="4">Castração</option>
+        				</select>
+        			</div>
+              <br><br>
+
+        			<div class="input-group date" data-provide="datepicker" id="divData">
+        			    <input type="text" class="form-control boxSizeDefault" id="datepicker" placeholder="Data da Consulta">
+        			    <div class="input-group-addon">
+        				    <span class="glyphicon glyphicon-th"></span>
+        		    	</div>
+        			</div>
+        		</div>
+        		<br>
+        </div>
+      </div>
+      <div class="modal-footer footer-services">
+
+        <div class="row">
+          <div id="btns-cart-modal" class="col-sm-6 cold-md-6 col-md-offset-6 col-sm-offset-6">
+            <button id="btn-close-modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a id="btn-checkout" type="button" class="btn btn-success" data-dismiss="modal">Agendar</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
 /* Open when someone clicks on the span element */

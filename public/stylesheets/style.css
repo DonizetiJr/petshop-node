@@ -17,6 +17,10 @@ hr {
   margin-bottom: 10px;
 }
 
+label {
+  margin-top: 1em;
+}
+
 .navbar {
   margin-bottom: 0;
 }

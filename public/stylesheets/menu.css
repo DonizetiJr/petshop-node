@@ -156,6 +156,18 @@
   font-weight: bold;
 }
 
+.footer-services {
+  border: none;
+}
+
+.sidenav a.service-link {
+  font-weight: normal;
+  font-size: .9em;
+  text-align: left;
+  padding-left: 0em;
+  margin-bottom: 2em;
+}
+
 @media screen and (max-width: 1440px) {
   .btn-add-product {
     left: 32%;
