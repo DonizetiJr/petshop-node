@@ -34,3 +34,20 @@
 #contato{
 	clear: all;
 }
+
+#botao_submit{
+	border-radius: 100%;
+	margin-top: 4%;
+	height: 5em;
+
+	transition: .5s background-color ease-in-out;
+	transition: .5s border-color ease-in-out;
+	transition: .5s color ease-in-out;
+}
+
+#botao_submit:hover{
+	background-color: #b7e3e4;
+	border-color: #61bfad;
+	border-width: 3px;
+	color: white;
+}
