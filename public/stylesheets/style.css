@@ -17,6 +17,10 @@ hr {
   margin-bottom: 10px;
 }
 
+.navbar {
+  margin-bottom: 0;
+}
+
 .navbar-default {
   background-color: white;
   box-shadow: 0 10px 15px 0 rgba(22, 46, 79, 0.1);

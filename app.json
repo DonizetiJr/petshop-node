@@ -1,0 +1,6 @@
+{
+  "name": "Patinhas Petshop",
+  "description": "Projeto de Web de um Petshop em Nodejs",
+  "repository": "https://git.heroku.com/patinhaspet.git",
+  "keyword": ["node", "express", "static"]
+}
