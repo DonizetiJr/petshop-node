@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -16,10 +17,11 @@ var index = require('./routes/index');
 var userRoutes = require('./routes/user');
 
 var app = express();
+app.use(express.static(path.join(__dirname, 'public')));
 mongoose.Promise = global.Promise;
 
-var uristring = proccess.env.MONGOLAB_URI ||
-                proccess.env.MONGOHQ_URL ||
+var uristring = process.env.MONGOLAB_URI ||
+                process.env.MONGOHQ_URL ||
                 'localhost:27017/shopping';
 mongoose.connect(uristring, function(err, res) {
   if (err) {
@@ -52,7 +54,7 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(function(req, res, next) {
   res.locals.login = req.isAuthenticated();
