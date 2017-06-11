@@ -22,6 +22,7 @@ mongoose.Promise = global.Promise;
 
 var uristring = process.env.MONGOLAB_URI ||
                 process.env.MONGOHQ_URL ||
+                process.env.MONGODB_URI ||
                 'localhost:27017/shopping';
 mongoose.connect(uristring, function(err, res) {
   if (err) {
