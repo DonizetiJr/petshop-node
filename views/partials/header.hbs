@@ -18,18 +18,18 @@
 
               <!-- Button trigger modal -->
               <li><a type="button" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>Meu Carrinho
                 <span id="header-badge" class="badge">{{ session.cart.totalQty }}</span>
               </a></li>
 
               {{# if login }}
-                <li><a onclick="openNav()">User Account</a></li>
+                <li><a onclick="openNav()">Minha Conta</a></li>
               {{ else }}
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> User Management <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Gerenciamento de Conta<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="/user/signup">Sign Up</a></li>
-                    <li><a href="/user/signin">Sign In</a></li>
+                    <li><a href="/user/signup">Registra-se</a></li>
+                    <li><a href="/user/signin">Entrar</a></li>
                   </ul>
                 </li>
               {{/if}}
@@ -126,7 +126,7 @@
 
         <div class="row">
           <div id="btns-cart-modal" class="col-sm-6 cold-md-6 col-md-offset-6 col-sm-offset-6">
-            <button id="btn-close-modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="btn-close-modal" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
             <a id="btn-checkout" type="button" class="btn btn-success" data-dismiss="modal">Agendar</a>
           </div>
         </div>

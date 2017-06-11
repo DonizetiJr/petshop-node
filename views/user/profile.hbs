@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h1>User Profile</h1>
+    <h1>Perfil do Usuário</h1>
     <hr>
-    <h2>My Orders</h2>
+    <h2>Meus Pedidos</h2>
 
     {{# each orders }}
       <div class="panel panel-default">
@@ -11,7 +11,7 @@
             {{# each this.items }}
               <li class="list-group-item">
                 <span class="badge">{{ this.price }}</span>
-                {{ this.item.title }} | {{ this.qty }} Units
+                {{ this.item.title }} | {{ this.qty }} Unidades
               </li>
             {{/each}}
           </ul>

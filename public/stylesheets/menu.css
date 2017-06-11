@@ -168,6 +168,10 @@
   margin-bottom: 2em;
 }
 
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+
 @media screen and (max-width: 1440px) {
   .btn-add-product {
     left: 32%;

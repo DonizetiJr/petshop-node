@@ -8,14 +8,12 @@
         <li id="table-item-{{ this.item._id }}" class="list-group-item">
           <span id="cart-badge-{{ this.item._id }}" class="badge">{{ this.qty }}</span>
           <strong>{{ this.item.title }}</strong>
-          <span id="item-price" class="label label-success">$<span>{{ this.item.price }}</span></span>
+          <span id="item-price" class="label label-success">R$<span>{{ this.item.price }}</span></span>
           <div class="btn-group">
-            <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action <span class="caret"></span></button>
+            <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Ação<span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a id="{{ this.item._id }}" class="btn-reduce">Reduce by 1</a></li>
-              <li><a id="{{ this.item._id }}" class="btn-remove">Remove All</a></li>
-              <!-- <li><a href="/reduce/{{this.item._id}}">Reduce by 1</a></li> -->
-              <!-- <li><a href="/remove/{{this.item._id}}">Remove All</a></li> -->
+              <li><a id="{{ this.item._id }}" class="btn-reduce">Remover 1 unidade</a></li>
+              <li><a id="{{ this.item._id }}" class="btn-remove">Remover todos</a></li>
             </ul>
           </div>
         </li>
@@ -27,14 +25,13 @@
 
   <div class="row">
     <div class="col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3">
-      <p id="total-price"><strong>Total: <span>{{ totalPrice }}</span></strong></p>
+      <p id="total-price"><strong>Total: <span>R$ {{ totalPrice }}</span></strong></p>
     </div>
   </div>
 
   <div class="row btn-checkout">
     <div class="col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3">
-      <a id="btn-checkout" type="button" class="btn btn-success">Checkout</a>
-      <!-- <a href="/checkout" type="button" class="btn btn-success">Checkout</a> -->
+      <a id="btn-checkout" type="button" class="btn btn-success">Prosseguir Compra</a>
     </div>
   </div>
 </div>
@@ -43,7 +40,7 @@
 
 <div class="row">
   <div class="col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3">
-    <h2>No items in Cart</h2>
+    <h2>Nenhum item no carrinho de compras</h2>
   </div>
 </div>
 

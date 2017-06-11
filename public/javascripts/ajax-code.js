@@ -20,22 +20,21 @@ $(function() {
           tbodyEl.append('\<li id="table-item-'+product.item._id+'" class="list-group-item">\
           <span id="cart-badge-'+product.item._id+'" class="badge">'+product.qty+'</span>\
           <strong>'+product.item.title+'</strong>\
-          <span id="item-price" class="label label-success">$<span>'+product.item.price+'</span></span>\
+          <span id="item-price" class="label label-success">R$<span>'+product.item.price+'</span></span>\
           <div class="btn-group">\
-          <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action <span class="caret"></span></button>\
+          <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Ação<span class="caret"></span></button>\
           <ul class="dropdown-menu">\
-          <li><a id="'+product.item._id+'" class="btn-reduce">Reduce by 1</a></li>\
-          <li><a id="'+product.item._id+'" class="btn-remove">Remove All</a></li>\
+          <li><a id="'+product.item._id+'" class="btn-reduce">Remover 1 unidade</a></li>\
+          <li><a id="'+product.item._id+'" class="btn-remove">Remover Todos</a></li>\
           </ul>\
           </div>\
           </li>');
         });
         $('#total-price').html('');
-        $('#total-price').append('<strong>Total: <span>'+response.totalPrice+'</span></strong></p>');
+        $('#total-price').append('<strong>Total: R$ <span>'+response.totalPrice+'</span></strong></p>');
         $('#btns-cart-modal').html('');
-        $('#btns-cart-modal').append('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>\
-                                      <a id="btn-checkout" type="button" class="btn btn-success">Checkout</a>');
-
+        $('#btns-cart-modal').append('<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>\
+                                      <a id="btn-checkout" type="button" class="btn btn-success">Prosseguir Compra</a>');
       }
     });
   });
@@ -60,9 +59,9 @@ $(function() {
           $('#cart-badge-'+id).text(itemQty);
         }
         if (cartQty == 0) {
-          $('#cart-ul').append("<div class='row'><div class='col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3'><h2>No items in Cart</h2></div></div");
+          $('#cart-ul').append("<div class='row'><div class='col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3'><h2>Nenhum item no carrinho de compras</h2></div></div");
           $('#btns-cart-modal').html('');
-          $('#btns-cart-modal').append('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>');
+          $('#btns-cart-modal').append('<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>');
 
         }
 
@@ -88,9 +87,9 @@ $(function() {
         $('#table-item-'+id).css('display', 'none');
 
         if (cartQty == 0) {
-          $('#cart-ul').append("<div class='row'><div class='col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3'><h2>No items in Cart</h2></div></div");
+          $('#cart-ul').append("<div class='row'><div class='col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3'><h2>Nenhum item no carrinho de compras</h2></div></div");
           $('#btns-cart-modal').html('');
-          $('#btns-cart-modal').append('<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>');
+          $('#btns-cart-modal').append('<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>');
         }
 
         $('#total-price').find('span').text(response.totalPrice);
@@ -106,15 +105,17 @@ $(function() {
       success: function(response) {
 
         $('#cart-list').html('');
-        $('#cart-list').append("<div class='row'> <div class='col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3'> <h1>Checkout</h1> <h4>Your total: $"+response.totalPrice+"</h4><form id='checkout-form'> <div class='row'> <div class='col-xs-12'> <div class='form-group'> <label >Name</label> <input type='text' id='name' class='form-control'> </div></div><div class='col-xs-12'> <div class='form-group'> <label>Adress</label> <input type='text' id='address' class='form-control'> </div></div><hr> <div class='col-xs-12'> <div class='form-group'> <label>Card Holder Name</label> <input type='text' id='card-name' class='form-control'> </div></div><div class='col-xs-12'> <div class='form-group'> <label>Credit Card Number</label> <input type='text' id='card-number' class='form-control'> </div></div><div class='col-xs-12'> <div class='row'> <div class='col-xs-6'> <div class='form-group'> <label>Expiration Month</label> <input type='text' id='card-expiry-month' class='form-control'> </div></div><div class='col-xs-6'> <div class='form-group'> <label>Expiration Year</label> <input type='text' id='card-expiry-year' class='form-control'> </div></div></div></div><div class='col-xs-12'> <div class='form-group'> <label>CVC</label> <input type='text' id='card-cvc' class='form-control'> </div></div></div> </form> </div></div>");
+        $('#cart-list').append("<div class='row'> <div class='col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3'> <h1>Dados Pessoais</h1> <h4>Seu total: $"+response.totalPrice+"</h4><form id='checkout-form'> <div class='row'> <div class='col-xs-12'> <div class='form-group'> <label >Nome</label> <input type='text' id='name' class='form-control'> </div></div><div class='col-xs-12'> <div class='form-group'> <label>Endereço</label> <input type='text' id='address' class='form-control'> </div></div><hr> <div class='col-xs-12'> <div class='form-group'> <label>Nome no cartão</label> <input type='text' id='card-name' class='form-control'> </div></div><div class='col-xs-12'> <div class='form-group'> <label>Número do Cartão de Crédito</label> <input type='text' id='card-number' class='form-control'> </div></div><div class='col-xs-12'> <div class='row'> <div class='col-xs-6'> <div class='form-group'> <label>Mês de Vencimento</label> <input type='text' id='card-expiry-month' class='form-control'> </div></div><div class='col-xs-6'> <div class='form-group'> <label>Ano de Vencimento</label> <input type='text' id='card-expiry-year' class='form-control'> </div></div></div></div><div class='col-xs-12'> <div class='form-group'> <label>CVC</label> <input type='text' id='card-cvc' class='form-control'> </div></div></div> </form> </div></div>");
         $('#total-price').find('span').text(response.totalPrice);
 
-        $('#cart-list').append('<div class="modal-footer">'+
+        $('.cart-total-price').html('');
+        $('#cart-footer').html('');
+        $('#cart-list').append('<div id="cart-footer" class="modal-footer">'+
 
           '<div class="row">'+
             '<div id="btns-cart-modal" class="col-sm-6 cold-md-6 col-md-offset-6 col-sm-offset-6">'+
-              '<button id="btn-close-modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
-              '<button id="btn-close-modal" type="button" class="btn btn-info btn-buy-final" data-dismiss="modal">Comprar</button>'+
+              '<button id="btn-close-modal" type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>'+
+              '<button id="btn-close-modal" type="button" class="btn btn-info btn-buy-final" data-dismiss="modal">Finalizar Compra</button>'+
             '</div>'+
           '</div>'+
 
@@ -140,10 +141,10 @@ $(function() {
         $('#success-bought').toggleClass("hidden");
 
         $('#cart-list').html('');
-        $('#cart-list').append('<h2>No items in Cart</h2>'+
+        $('#cart-list').append('<h2>Nenhum item no carrinho de compras</h2>'+
         '<div class="row">'+
           '<div id="total-cart-price" class="col-sm-6 cold-md-6 col-md-offset-3 col-sm-offset-3">'+
-            '<p id="total-price"><strong>Total: <span>'+response.totalPrice+'</span></strong></p>'+
+            '<p id="total-price"><strong>Total: R$ <span>'+response.totalPrice+'</span></strong></p>'+
           '</div>'+
         '</div>'+
 
@@ -151,7 +152,7 @@ $(function() {
 
         '<div class="row">'+
           '<div id="btns-cart-modal" class="col-sm-6 cold-md-6 col-md-offset-6 col-sm-offset-6">'+
-            '<button id="btn-close-modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+            '<button id="btn-close-modal" type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>'+
           '</div>'+
           '</div>'+
         '</div>');
