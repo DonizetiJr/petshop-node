@@ -17,7 +17,17 @@ var userRoutes = require('./routes/user');
 
 var app = express();
 mongoose.Promise = global.Promise;
-mongoose.connect('localhost:27017/shopping');
+
+var uristring = proccess.env.MONGOLAB_URI ||
+                proccess.env.MONGOHQ_URL ||
+                'localhost:27017/shopping';
+mongoose.connect(uristring, function(err, res) {
+  if (err) {
+    console.log('ERROR connection to:' + uristring +'. ' + err );
+  } else {
+    console.log('Succeeded connected to:' + uristring);
+  }
+});
 require('./config/passport');
 
 // view engine setup
