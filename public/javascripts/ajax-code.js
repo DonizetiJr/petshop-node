@@ -32,8 +32,8 @@ $(function() {
         });
         $('#total-price').html('');
         $('#total-price').append('<strong>Total: R$ <span>'+response.totalPrice+'</span></strong></p>');
-        $('#btns-cart-modal').html('');
-        $('#btns-cart-modal').append('<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>\
+        $('#cart-footer').html('');
+        $('#cart-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>\
                                       <a id="btn-checkout" type="button" class="btn btn-success">Prosseguir Compra</a>');
       }
     });
