@@ -2,7 +2,17 @@ var Product = require('../models/product');
 
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('localhost:27017/shopping');
+var uristring = process.env.MONGOLAB_URI ||
+                process.env.MONGOHQ_URL ||
+                process.env.MONGODB_URI ||
+                'localhost:27017/shopping';
+mongoose.connect(uristring, function(err, res) {
+  if (err) {
+    console.log('ERROR connection to:' + uristring +'. ' + err );
+  } else {
+    console.log('Succeeded connected to:' + uristring);
+  }
+});
 
 var products = [
     new Product({
