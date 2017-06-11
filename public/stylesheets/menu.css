@@ -1,60 +1,163 @@
-/*************************** Navbar ************************************/
-
-/* The Overlay (background) */
-.overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */
-    height: 0;
-    width: 100%;
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
+    z-index: 1; /* Stay on top */
     top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    right: 0;
+    background-color: #fafafa; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    box-shadow: 0 10px 15px 0 rgba(22, 46, 79, 0.1);
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-/* Position the content inside the overlay */
-.overlay-content {
-    position: relative;
-    top: 25%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
-
-/* The navigation links inside the overlay */
-.overlay a {
-    padding: 8px;
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 36px;
+    font-size: 25px;
     color: #818181;
-    display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
+    display: block;
+    transition: 0.3s
 }
 
 /* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
+.sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
 
-/* Position the close button (top right corner) */
-.overlay .closebtn {
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
     position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+    top: 0;
+    right: 25px;
+    font-size: 50px;
+    margin-left: 50px;
+    color: white;
 }
 
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+.sidenav .closebtn:hover {
+  color: rgb(165,214,228);
+  -ms-transform: scale(1.1,1.1); /* IE 9 */
+  -webkit-transform: scale(1.1,1.1); /* Chrome, Safari, Opera */
+  transform: scale(1.1,1.1);
+}
+
 @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
 
-/********************************* Hamburguer ***********************************/
+.menu-header {
+  position: relative;
+  height: 22%;
+  padding-top: .8em;
+  z-index: -1;
+  background-image: linear-gradient(#f8e3e8 10%, #efb7c2);
+  box-shadow: 0 6px 30px 0 rgba(22, 46, 79, 0.1);
+}
+
+.menu-header h3 {
+  text-align: center;
+  font-size: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold
+}
+
+.img-cadastro {
+  position: relative;
+  margin-top: -10em;
+}
+
+.btn-add-product {
+  position: absolute;
+  right: 33%;
+  top: 12%;
+  background-color: #efb7c2;
+  color: #fff;
+  padding: 1.3em;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 30px 0 rgba(22, 46, 79, 0.1);
+
+  transition: .2s all ease-in-out;
+}
+
+.btn-add-product:hover {
+  background-color: #ddd;
+}
+
+.img-cadastro img, .item img {
+  border-radius: 50%;
+  border: 8px solid rgb(165,214,228);
+  display: block;
+  margin: 1.5em auto 1.5em auto;
+  box-shadow: 0 10px 15px 0 rgba(22, 46, 79, 0.1);
+}
+
+.glyphicon-chevron-right, .glyphicon-chevron-left {
+  color: rgba(239,186,196, 1);
+  border: none;
+  text-shadow: none;
+}
+
+.carousel-control.right, .carousel-control.left {
+  background-image: none;
+}
+
+.profile-info {
+  margin-top: 3.5em;
+  text-align: center;
+}
+
+.profile-info p {
+  font-size: 1.3em;
+}
+
+.info-important {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #a5d6e4;
+}
+
+@media screen and (max-width: 1440px) {
+  .btn-add-product {
+    right: 27%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .btn-add-product {
+    right: 19%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn-add-product {
+    right: 8%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .btn-add-product {
+    right: 23%;
+  }
+
+  .img-cadastro {
+    margin-top: -7em;
+  }
+
+  .img-cadastro img {
+    height: 170px;
+    width: 170px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .btn-add-product {
+    right: 15%;
+  }
+}

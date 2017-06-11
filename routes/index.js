@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var Cart = require('../models/cart');
+var csrf = require('csurf');
+var passport = require('passport');
 
+var Cart = require('../models/cart');
 var Product = require('../models/product');
 var Order = require('../models/order');
+
+var csrfProtection = csrf();
+router.use(csrfProtection);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,7 +20,7 @@ router.get('/', function(req, res, next) {
       productChunks.push(docs.slice(i,i + chunckSize));
     }
     var cart = new Cart(req.session.cart ? req.session.cart : {});
-    res.render('shop/index', { title: 'Pet Shop', products: productChunks, successMsg: successMsg, noMessages: !successMsg, productsCart: cart.generateArray(), totalPrice: cart.totalPrice });
+    res.render('shop/index', { title: 'Pet Shop', products: productChunks, successMsg: successMsg, noMessages: !successMsg, productsCart: cart.generateArray(), totalPrice: cart.totalPrice, user: req.user });
   });
 });
 
